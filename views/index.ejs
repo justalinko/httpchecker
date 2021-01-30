@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>HTTP STATUS CHECKER</title>
+        <script src="jquery.js"></script>
+        <style>
+            html,body{background: #eee;color:#333}
+            textarea,input{background: transparent;border: 1px solid #000;padding: 10px;}
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1>HTTP STATUS MASS CHECKER</h1>
+            <form method="post">
+                <p>Website list :</p>
+                <textarea name="webs" id="webs" cols="60" rows="10"></textarea>
+                <br>  <br>
+                <input type="button" id="check" value="Check" name="check">
+            </form>
+            <div id="status" style="text-align: left;margin-left: 200px;">
+
+            </div>
+        </center>
+    </body>
+    <script type="text/javascript">
+    $('#check').click(function(){
+    var webs = $('#webs').val();
+    var web = webs.split("\n");
+    var count = web.length;
+    $('#status').append("<b> CHECKING <font color=red>"+count+"</font> WEB LISTS </b><br><br>");
+    web.forEach(function(weeb)
+    {
+       $.ajax({url : '/check/'+weeb,
+       success:function(hm)
+       {
+           if(hm == 200){
+           $('#status').append("<li>"+weeb+" <font color=green>[STATUS CODE: "+hm+"] SUCCESS</font> </li>");
+           }else{
+            $('#status').append("<li>"+weeb+" <font color=orange>[STATUS CODE: "+hm+"] NOT 200 OK</font> </li>"); 
+           }
+       },
+       error:function(hm){
+        $('#status').append("<li>"+weeb+" [ERR : "+hm+"]  </li>");
+
+       }
+    });
+    });
+
+    });
+    </script>
+</html>
