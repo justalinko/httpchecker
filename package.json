@@ -2,8 +2,9 @@
   "name": "httpchecker",
   "version": "1.0.2021",
   "description": "HTTP Checker for check http status code website",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "(node index.js) & electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/justalinko/httpchecker#readme",
   "dependencies": {
     "ejs": "^3.1.5",
+    "electron": "^11.2.1",
     "express": "^4.17.1",
     "url-status-code": "^2.0.0"
   }
