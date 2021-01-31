@@ -1,9 +1,10 @@
 # HTTP STATUS CHECKER
 
-```npm install```
-```node index.js```
+- HTTP STATUS CHECKER - 
 
+__Personal small project for implementations I've got from learning javascript__
 
-```http://localhost:8080```
+```npm install``
+```npm start```
 
 
