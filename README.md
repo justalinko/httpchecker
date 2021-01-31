@@ -4,7 +4,7 @@
 
 __Personal small project for implementations I've got from learning javascript__
 
-```npm install``
+```npm install```
 ```npm start```
 
 
